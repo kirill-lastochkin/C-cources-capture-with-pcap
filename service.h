@@ -15,6 +15,8 @@
 #define UDP 17
 #define ICMP 1
 
+#define NUM_OF_PACKETS_TO_CAPTURE 20
+
 extern char *optarg;
 //extern int optind, opterr, optopt;
 

@@ -6,6 +6,7 @@ pcap_t *dev;
 //разбираем на заголовки
 void my_callback(u_char *user, const struct pcap_pkthdr* hdr, const u_char* packet)
 {
+    static int cnt=1;
     u_int i;
     struct sniff_eth *eth;
     struct sniff_arp *arp;
@@ -87,6 +88,8 @@ void my_callback(u_char *user, const struct pcap_pkthdr* hdr, const u_char* pack
 
     }
     printf("\n----------END-----------\n");
+    if(cnt==NUM_OF_PACKETS_TO_CAPTURE) pcap_breakloop(dev);
+    cnt++;
 }
 
 //старт рсар
